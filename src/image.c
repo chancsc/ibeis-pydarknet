@@ -329,6 +329,7 @@ void save_image(image im, const char *name)
     if(!success) fprintf(stderr, "Failed to write image %s\n", buff);
 }
 
+/*  -- commented by SC
 #ifdef OPENCV
 void save_image_jpg(image p, char *name)
 {
@@ -353,6 +354,7 @@ void save_image_jpg(image p, char *name)
     free_image(copy);
 }
 #endif
+*/
 
 void show_image_layers(image p, char *name)
 {
@@ -752,7 +754,7 @@ void test_resize(char *filename)
 #endif
 }
 
-#ifdef OPENCV
+//#ifdef OPENCV -- commented by SC
 image ipl_to_image(IplImage* src)
 {
     unsigned char *data = (unsigned char *)src->imageData;
@@ -773,6 +775,7 @@ image ipl_to_image(IplImage* src)
     return out;
 }
 
+/* -- commented by SC
 image load_image_cv(char *filename, int channels)
 {
     IplImage* src = 0;
@@ -796,7 +799,7 @@ image load_image_cv(char *filename, int channels)
 }
 
 #endif
-
+*/
 
 image load_image_stb(char *filename, int channels)
 {
