@@ -17,9 +17,12 @@ endif()
 
 #######################################
 message(STATUS "Checking OpenCV")
-find_package( OpenCV REQUIRED )
+#find_package( OpenCV REQUIRED )
+find_package( OpenCV 3.4.20 REQUIRED PATHS /usr/local)
 add_definitions(-DOPENCV)
-include_directories(${OpenCV_INCLUDE_DIRS})
+message(STATUS "SC: OpenCV_INCLUDE_DIRS: ${OpenCV_INCLUDE_DIRS}")
+#include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories(/usr/local/include/opencv2)
 
 message(STATUS "Checking Threads")
 find_package( Threads REQUIRED )
@@ -53,6 +56,8 @@ else ()
         ${SOURCE_FILES}
     )
 endif ()
+
+message(STATUS "SC: OpenCV_LIBS: ${OpenCV_LIBS}")
 
 #######################################
 target_link_libraries(pydarknet
